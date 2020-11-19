@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "c4141636-a405-4787-8922-7320a68cfd1e",
+		"name": "Servicio de Habitaciones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Habitaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/listar",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Habitacion por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/buscar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"buscar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Habitacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n       \n    \"descriccion\": \"4-A\",\n    \"tipo\": \"ESTANDAR\",\n    \"estado\": \"LIBRE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Habitacion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"descriccion\": \"1-B\",\n    \"tipo\": \"SUITE\",\n    \"estado\": \"LIBRE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/editar/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"editar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Habitacion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/eliminar/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"eliminar",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transicionar Estado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/transicion/5/estado/LIMPIEZA",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"transicion",
+						"5",
+						"estado",
+						"LIMPIEZA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reservar Habitacion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/reservar/7",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"reservar",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Habitaciones por Tipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/listar/tipos/NORMAL",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"listar",
+						"tipos",
+						"NORMAL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Habitaciones por Estado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/listar/estados/OCUPADA",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"listar",
+						"estados",
+						"OCUPADA"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

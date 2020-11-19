@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "dbaa7f98-7cae-4798-a9ab-2198fd223072",
+		"name": "Servicio Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/usuarios/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/usuarios/usuarios/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"david\",\n    \"password\": \"123456\",    \n    \"nombre\": \"David\",\n    \"apellido\": \"Ramirez\",\n    \"email\": \"davidr52@gmail.com\",\n    \"enabled\": true,\n    \"roles\": [\n        {\n            \"id\":3,\n            \"nombre\": \"ROLE_CLIENTE\"\n        },\n        {\n            \"id\":2,\n            \"nombre\": \"ROLE_RECEPCIONISTA\"\n        }\n    ]\n   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/usuarios/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"username\": \"david14\",\n    \"password\": \"123456\",\n    \"nombre\": \"David14\",\n    \"apellido\": \"Ramirez\",\n    \"email\": \"davidr14@gmail.com\",\n    \"enabled\": true,\n    \"roles\": [\n        {\n            \"nombre\": \"ROLE_CLIENTE\"\n        },\n        {\n            \"nombre\": \"ROLE_RECEPCIONISTA\"\n        }\n    ],\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://192.168.1.8:43113/usuarios/4\"\n        },\n        \"usuario\": {\n            \"href\": \"http://192.168.1.8:43113/usuarios/4\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/usuarios/usuarios/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/usuarios/usuarios/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por UserName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/usuarios/usuarios/search/buscar-username?username=osmar",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios",
+						"search",
+						"buscar-username"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "osmar"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

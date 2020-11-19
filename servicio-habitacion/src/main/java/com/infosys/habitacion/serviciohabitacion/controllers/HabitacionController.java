@@ -2,15 +2,18 @@ package com.infosys.habitacion.serviciohabitacion.controllers;
 
 
 import com.infosys.habitacion.serviciohabitacion.dtos.MensajeGenericoRs;
+import com.infosys.habitacion.serviciohabitacion.enums.EstadoHabitacion;
 import com.infosys.habitacion.serviciohabitacion.enums.Mensajes;
 import com.infosys.habitacion.serviciohabitacion.models.Habitacion;
 import com.infosys.habitacion.serviciohabitacion.services.HabitacionService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +32,73 @@ public class HabitacionController {
     public List<Habitacion> listarHabitaciones(){
 
         return habitacionService.listarHabitaciones();
+    }
+
+    @GetMapping("/listar/disponibles")
+    public ResponseEntity<?> listarHabitacionesDisponibles(){
+
+        MensajeGenericoRs mensajeGenericoRs = new MensajeGenericoRs();
+
+        List<Habitacion> disponibles = new ArrayList<>();
+
+        habitacionService.listarHabitaciones().forEach(habitacion -> {
+                    if(StringUtils.equalsAnyIgnoreCase(habitacion.getEstado(), EstadoHabitacion.LIBRE.getDescriccion()) ){
+                        disponibles.add(habitacion);
+                    }
+                });
+        if(CollectionUtils.isNotEmpty(disponibles)){
+            return ResponseEntity.ok(disponibles);
+        }
+
+        mensajeGenericoRs.setCodigo(Mensajes.HABITACIONES_NO_DISPONIBLES.getCodigo());
+        mensajeGenericoRs.setMensaje(Mensajes.HABITACIONES_NO_DISPONIBLES.getDescriccion());
+        return ResponseEntity.ok(mensajeGenericoRs);
+
+    }
+
+    @GetMapping("/listar/estados/{descripcion}")
+    public ResponseEntity<?> listarHabitacionesPorEstado(@PathVariable String descripcion){
+
+        MensajeGenericoRs mensajeGenericoRs = new MensajeGenericoRs();
+
+        List<Habitacion> habitaciones = new ArrayList<>();
+
+        habitacionService.listarHabitaciones().forEach(habitacion -> {
+            if(StringUtils.equalsAnyIgnoreCase(habitacion.getEstado(), descripcion) ){
+                habitaciones.add(habitacion);
+            }
+        });
+        if(CollectionUtils.isNotEmpty(habitaciones)){
+            return ResponseEntity.ok(habitaciones);
+        }
+
+        mensajeGenericoRs.setCodigo(Mensajes.HABITACIONES_NO_DISPONIBLES.getCodigo());
+        mensajeGenericoRs.setMensaje(Mensajes.HABITACIONES_NO_DISPONIBLES.getDescriccion());
+        return ResponseEntity.ok(mensajeGenericoRs);
+
+    }
+
+    @GetMapping("/listar/tipos/{descripcion}")
+    public ResponseEntity<?> listarHabitacionesPorTipo(@PathVariable String descripcion){
+
+        MensajeGenericoRs mensajeGenericoRs = new MensajeGenericoRs();
+
+        List<Habitacion> habitaciones = new ArrayList<>();
+
+        habitacionService.listarHabitaciones().forEach(habitacion -> {
+            if(StringUtils.equalsAnyIgnoreCase(habitacion.getTipo(), descripcion) ){
+                habitaciones.add(habitacion);
+            }
+        });
+
+        if(CollectionUtils.isNotEmpty(habitaciones)){
+            return ResponseEntity.ok(habitaciones);
+        }
+
+        mensajeGenericoRs.setCodigo(Mensajes.HABITACIONES_NO_DISPONIBLES.getCodigo());
+        mensajeGenericoRs.setMensaje(Mensajes.HABITACIONES_NO_DISPONIBLES.getDescriccion());
+        return ResponseEntity.ok(mensajeGenericoRs);
+
     }
 
     @GetMapping("/buscar/{id}")
@@ -125,4 +195,5 @@ public class HabitacionController {
         mensajeGenericoRs.setMensaje(Mensajes.HABITACION_NO_ENCONTRADA.getDescriccion());
         return ResponseEntity.badRequest().body(mensajeGenericoRs);
     }
+
 }
