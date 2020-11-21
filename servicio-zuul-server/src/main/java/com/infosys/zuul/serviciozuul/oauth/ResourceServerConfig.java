@@ -27,12 +27,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/api/security/oauth/**").permitAll();
-                //.antMatchers(HttpMethod.PUT, "/api/habitaciones/reservar/{id}").hasRole("CLIENTE")
-                //.antMatchers(HttpMethod.GET, "/api/habitaciones/listar/disponibles").hasRole("CLIENTE")
-                //.antMatchers("/api/habitaciones/transicion/{id}/estados/{descripcion}", "/api/habitaciones/listar", "/api/habitaciones/listar/**", "/api/habitaciones/reservar/{id}").hasRole("RECEPCIONISTA")
-                //.antMatchers("/api/habitaciones/**", "/api/usuarios/**").hasAnyRole("GERENTE")
-                //.anyRequest().authenticated();
+        http.authorizeRequests().antMatchers("/api/security/oauth/**").permitAll()
+                .antMatchers("/api/habitaciones/**").hasRole("GERENTE")
+                .antMatchers(HttpMethod.GET, "/api/habitaciones/listar/disponibles").hasRole("CLIENTE")
+                .antMatchers(HttpMethod.PUT, "/api/habitaciones/reservar/{id}").hasAnyRole("CLIENTE", "RECEPCIONISTA")
+                .antMatchers("/api/habitaciones/transicion/{id}/estado/{descripcion}", "/api/habitaciones/listar/**").hasRole("RECEPCIONISTA")
+                .anyRequest().authenticated();
     }
 
     @Bean

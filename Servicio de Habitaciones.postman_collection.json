@@ -8,6 +8,16 @@
 		{
 			"name": "Listar Habitaciones",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJlc3RoZXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJQZXJleiIsImNvcnJlbyI6ImV0ZXIxOTg2MUBnbWFpbC5jb20iLCJleHAiOjE2MDU5NDkwOTQsIm5vbWJyZSI6IkVzdGhlciIsImF1dGhvcml0aWVzIjpbIlJPTEVfUkVDRVBDSU9OSVNUQSJdLCJqdGkiOiIxOGY2NWZjMC1lOWY5LTRjY2EtODQxNy0yZTk5NjJjOTVlYzQiLCJjbGllbnRfaWQiOiJmcm9udGFwcCJ9.U0DR_NBae83QUU0s-a-BsfwlG8HYmtpl_WhDncJ7crI",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -173,6 +183,16 @@
 		{
 			"name": "Listar Habitaciones por Tipo",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJyZWNlcGNpb25pc3RhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFwZWxsaWRvIjoiUGVyZXoiLCJjb3JyZW8iOiJldGVyMTk4NjFAZ21haWwuY29tIiwiZXhwIjoxNjA1OTUwMDczLCJub21icmUiOiJFc3RoZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX1JFQ0VQQ0lPTklTVEEiXSwianRpIjoiYjkxMWYyMjEtYmE3Yy00YmZjLWIyMmMtZGM4MzllZWU3YjE1IiwiY2xpZW50X2lkIjoiZnJvbnRhcHAifQ.TwebhSHvg1avAshm6W9hsal3eWm3Lc7LqGsiF6KJ5sM",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -195,6 +215,16 @@
 		{
 			"name": "Listar Habitaciones por Estado",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJyZWNlcGNpb25pc3RhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFwZWxsaWRvIjoiUGVyZXoiLCJjb3JyZW8iOiJldGVyMTk4NjFAZ21haWwuY29tIiwiZXhwIjoxNjA1OTUwMDczLCJub21icmUiOiJFc3RoZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX1JFQ0VQQ0lPTklTVEEiXSwianRpIjoiYjkxMWYyMjEtYmE3Yy00YmZjLWIyMmMtZGM4MzllZWU3YjE1IiwiY2xpZW50X2lkIjoiZnJvbnRhcHAifQ.TwebhSHvg1avAshm6W9hsal3eWm3Lc7LqGsiF6KJ5sM",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -209,6 +239,37 @@
 						"listar",
 						"estados",
 						"OCUPADA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista Habitaciones Disponibles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJlc3RoZXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJQZXJleiIsImNvcnJlbyI6ImV0ZXIxOTg2MUBnbWFpbC5jb20iLCJleHAiOjE2MDU5NDkwOTQsIm5vbWJyZSI6IkVzdGhlciIsImF1dGhvcml0aWVzIjpbIlJPTEVfUkVDRVBDSU9OSVNUQSJdLCJqdGkiOiIxOGY2NWZjMC1lOWY5LTRjY2EtODQxNy0yZTk5NjJjOTVlYzQiLCJjbGllbnRfaWQiOiJmcm9udGFwcCJ9.U0DR_NBae83QUU0s-a-BsfwlG8HYmtpl_WhDncJ7crI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/habitaciones/listar/disponibles",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"habitaciones",
+						"listar",
+						"disponibles"
 					]
 				}
 			},
